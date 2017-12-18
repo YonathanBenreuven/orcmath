@@ -21,7 +21,7 @@ public class Cards extends Component {
 		update();
 	}
 	public String toString() {
-		return name + " ,  " + effect + " , "+ cost + " , ";
+		return name + "," + effect + ","+ cost;
 	}
 	
 	public void update(Graphics2D g) {
