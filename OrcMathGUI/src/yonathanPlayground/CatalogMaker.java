@@ -48,7 +48,7 @@ public class CatalogMaker {
 		
 	}
 	public static void save() {
-		String[] Data = cardList.split(",");
+	//	String[] Data = cardList.split(",");
 	}
 	public static String getCSVContent() {
 		String data = "";
