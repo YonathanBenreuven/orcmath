@@ -12,6 +12,7 @@ import guiTeacher.userInterfaces.FullFunctionScreen;
 
 public class CatalogScreen extends FullFunctionScreen implements FileRequester {
 	private TextArea text;
+	// make three seperate fields
 	private TextField descriptionField;
 	private Button addButton;
 	private Button saveButton;
@@ -25,6 +26,7 @@ public class CatalogScreen extends FullFunctionScreen implements FileRequester {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		bookMaker = new CatalogMaker();
 		addButton = new Button(300,300,50,50,"add",new Action() {
 			
 			@Override
@@ -68,7 +70,8 @@ public class CatalogScreen extends FullFunctionScreen implements FileRequester {
 	protected void addClicked() {
 		Book b = new Book(descriptionField.getText(), descriptionField.getText(), Integer.parseInt(descriptionField.getText()));
 		text.setText(text+"\n"+b);
-		catalog.addBook();
+		bookMaker.addBook(b);
+		descriptionField.setText("");
 	}
 
 	public static void main(String[] args) {
