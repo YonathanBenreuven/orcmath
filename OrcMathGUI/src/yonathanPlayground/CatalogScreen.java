@@ -17,7 +17,7 @@ public class CatalogScreen extends FullFunctionScreen implements FileRequester {
 	private Button saveButton;
 	private Button deleteButton;
 	private FileOpenButton openFile;
-	private CatalogMaker cardMaker;
+	private CatalogMaker bookMaker;
 	public CatalogScreen(int width, int height) {
 		super(width, height);
 		
@@ -56,17 +56,19 @@ public class CatalogScreen extends FullFunctionScreen implements FileRequester {
 		viewObjects.add(openFile);
 		text = new TextArea(80,80,100,100,"This is where text goes");
 		viewObjects.add(text);
-		descriptionField = new TextField(40, 40, 100, 40, "enter text","card name");
+		descriptionField = new TextField(40, 40, 100, 40, "enter text","book name");
 		viewObjects.add(descriptionField);
-		descriptionField = new TextField(140, 140, 200, 40, "enter text","card effect");
+		descriptionField = new TextField(210, 40, 200, 40, "enter text","author");
 		viewObjects.add(descriptionField);
-		descriptionField = new TextField(240, 240, 200, 40, "enter text","card cost");
+		descriptionField = new TextField(410, 40, 200, 40, "enter text","page num");
+		descriptionField.setInputType(TextField.INPUT_TYPE_NUMERIC);
 		viewObjects.add(descriptionField);
 	}
 
 	protected void addClicked() {
-		text.setText("add button clicked");
-		
+		Book b = new Book(descriptionField.getText(), descriptionField.getText(), Integer.parseInt(descriptionField.getText()));
+		text.setText(text+"\n"+b);
+		catalog.addBook();
 	}
 
 	public static void main(String[] args) {
